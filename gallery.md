@@ -46,7 +46,7 @@ Wrote and presented at FOSS4G 2017 in Boston.  Provided an introduction to GeoWe
 
 ## State of GeoServer 2018
 
-Wrote and presented at FOSS4G-NA 2018 in Boston with Jody Garnett and Torben Barsballe.  Provided an introduction to GeoServer and outlined new features in recent versions and anticipated in future releases.  No recording available.
+Wrote and presented at FOSS4G-NA 2018 in St. Louis with Jody Garnett and Torben Barsballe.  Provided an introduction to GeoServer and outlined new features in recent versions and anticipated in future releases.  No recording available.
 
 ## State of GeoWebCache 2018
 
