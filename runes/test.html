@@ -5,14 +5,25 @@
         font-family: "Sosaria Scriven";
         src: url("./SosariaScriven.otf") format("opentype");
       }
-      body {
-        font-family: "Sosaria Scriven";
-        width: 30em;
-        margin-left: auto;
-        margin-right: auto;
-        background: url("parchment.png") linen;
-        color: #631;
+      @font-face {
+        font-family: "QT Dublin Irish";
+        src: url("./QTDublinIrish.otf") format("opentype");
       }
+      :root {
+        font-family: "Sosaria Scriven", "QT Dublin Irish";
+        font-size: 200%;
+        background: url("parchment.png") linen;
+        --black-ink: #631;
+        --red-ink: FireBrick;
+        color: var(--black-ink);
+      }
+
+      body>div {
+        width: 30rem;
+        margin-left: auto;
+        margin-right: auto;    
+      }
+      
       .sosarian, .novian, .dwarven {
         word-break: break-all;
         text-align: justify;
@@ -36,7 +47,7 @@
       rc:hover > rt {display: block; position: relative; text-align: center; margin-top: -2em; font-size: 0.75em;}*/
 
       em {
-        color: FireBrick;
+        color: var(--red-ink);
         font-style: normal;
         font-weight: inherit;
       }
@@ -48,13 +59,13 @@
         text-underline-offset: 7%;
       }
 
-      h2 {color: FireBrick;}
+      h2 {color: var(--red-ink);}
       h2, h3 {font-weight: inherit;}
       
-      h2:before, h3:before {content: '\1FAA2\FE0E\200D['; color: #631; }
-      h2:after, h3:after {content: ']\200D\1FAA2\FE0E'; color: #631; }
+      h2:before, h3:before {content: '\1FAA2\FE0E\200D['; color: var(--black-ink); }
+      h2:after, h3:after {content: ']\200D\1FAA2\FE0E'; color: var(--black-ink); }
       
-      h3:before, h3:after  {color: FireBrick;}
+      h3:before, h3:after  {color: var(--red-ink);}
 
       ruby {ruby-merge: merge; ruby-position: under;}
       ruby ruby {ruby-position: over;}
@@ -66,7 +77,7 @@
 
       .white, .orange, .yellow, .green, .blue, .black, .red, .purple {
         -webkit-text-stroke-width: 0.25px;
-        -webkit-text-stroke-color: #631;
+        -webkit-text-stroke-color: var(--black-ink);
       }
 
       .white {color:floralwhite;}
@@ -74,8 +85,8 @@
       .yellow {color:Khaki;}
       .green {color:OliveDrab; }
       .blue {color:DarkSlateBlue; }
-      .black {color:darker #631;}
-      .red {color:FireBrick;}
+      .black {color:darker var(--black-ink);}
+      .red {color:var(--red-ink);}
       .purple {color:darkorchid ;}
 
       .song {
@@ -93,14 +104,17 @@
         text-indent: -5em ;
       }
 
-      table {font-family: sans-serif;}
-      td.glyph {font-size: 200%; text-align: center;font-family: "Sosaria Scriven";}
+      .encodingCharts {width: 100%;}
+      .encodingCharts table {display: inline-table; border: 1pt solid}
+      table {font-size: inherit;}
+      td.glyph {font-size: 200%; text-align: center;}
       td.encoding {font-family: monospace;}
       td.sub, td.context.ipa {text-align: center;}
+      tr.incomplete {text-decoration: line-through var(--red-ink)}
     </style>
   </head>
   <body>
-    <div style="text-align: center; font-size:3em;">
+    <div style="width: 100%; text-align: center; font-size:3em;">
       <div>
         <span class="red">&#x1F514;</span>
         <span class="blue">&#x1F56E;</span>
@@ -117,6 +131,11 @@
       </div>
     </div>
 
+    <div>
+      <h2>There and Back Again</h2>
+      
+      <p>In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfort.</p>
+    </div>
     <div class="sosarian">
       <h2>ᚦᛖᚱᛖ᛫ᚫᚾᛞ᛫ᛒᚫᚳᛱ᛫ᚫᚷᚫᛁᚾ</h2>
       
@@ -137,14 +156,14 @@
     </div>
     
     <div class="dwarven" style="width: 10em">
-      <p style="width: 5.25em">ᚠᛁᚢᛖ᛫ᚠᛟᛏ᛫ᚻᛁᚷᚻ᛫ᚦᛖ᛫ᛞᚩᚱ᛫ᚫᚾᛞ᛫ᚦᚱᛟ᛫ᛗᚫᚣ᛫ᚹᚩᛚᛱ᛫ᚫᛒᚱᚫᛖᛋᛏ⁝ <span style="display: inline-block; vertical-align: text-top; font-size: 150%;">.ᚦ.ᚦ.</span></p>
-      <p style="font-weight: bold; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #631; -webkit-text-fill-color: transparent;">
+      <p style="width: 5.25rem">ᚠᛁᚢᛖ᛫ᚠᛟᛏ᛫ᚻᛁᚷᚻ᛫ᚦᛖ᛫ᛞᚩᚱ᛫ᚫᚾᛞ᛫ᚦᚱᛟ᛫ᛗᚫᚣ᛫ᚹᚩᛚᛱ᛫ᚫᛒᚱᚫᛖᛋᛏ⁝ <span style="display: inline-block; vertical-align: text-top; font-size: 150%; line-height:0.9">.ᚦ.ᚦ.</span></p>
+      <p style="font-weight: bold; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: var(--black-ink); -webkit-text-fill-color: transparent;">
         ᛋᛏᚫᚾᛞ&#xFE0D;᛫ᛒᚣ᛫ᚦᛖ᛫ᚷᚱᛖᚣ᛫ᛋᛏᚩᚾᛖ᛫ᚹᚻᛖᚾ᛫ᚦᛖ᛫ᚦᚱᚢᛋᚻ᛫ᛱᚾᚩᚱᛱᛋ᛫ᚫᚾᛞ&#xFE0D;᛫ᚦᛖ᛫ᛋᛖᛏᛏᛁᛝ᛫ᛋᚢᚾ᛫ᚹᛁᚦ᛫ᚦᛖ᛫ᛚᚪᛋᛏ᛫ᛚᛁᚷᚻᛏ᛫ᚩᚠ᛫ᛞᚢᚱᛁᚾᛋ᛫ᛞᚫᚣ᛫ᚹᛁᛚᛚ᛫ᛋᚻᛁᚾᛖ᛫ᚢᛈᚩᚾ᛫ᚦᛖ᛫ᛱᛖᚣᚻᚩᛚᛖ᛫
       </p>
-      <div style="font-size: 125%; font-weight: bold; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #631; -webkit-text-fill-color: transparent; margin-left: auto; margin-right: auto; border: 1px black; border: 2px double #631; width:2ex; text-align: center; padding: -1ex;">᛫ᚦ᛫</div>
+      <div style="font-size: 125%; font-weight: bold; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: var(--black-ink); -webkit-text-fill-color: transparent; margin-left: auto; margin-right: auto; border: 3px double var(--black-ink); width:2ex; text-align: center; padding: -1ex;">᛫ᚦ᛫</div>
     </div>
     <div class="hide-ruby gargish">
-      <h2><ruby><ruby><rb></rb><rt>kodeks</rt></ruby><rt>book</rt></ruby> <ruby><ruby><rb></rb><rt>de</rt></ruby><rt>of</rt></ruby> <ruby><ruby><rb></rb><rt>bal-sil</rt></ruby><rt>prophecy</rt></ruby></h2>
+      <h2>  </h2>
       
       <p><ruby><ruby><rb></rb><rt>prae-tim-de</rt></ruby><rt>ancient</rt></ruby> <ruby><ruby><rb></rb><rt>bal-sil</rt></ruby><rt>prophecy</rt></ruby> <ruby><ruby><rb></rb><rt>lok</rt></ruby><rt>tell</rt></ruby> <ruby><ruby><rb></rb><rt>de</rt></ruby><rt>of</rt></ruby> <ruby><ruby><rb></rb><rt>ul</rt></ruby><rt>final</rt></ruby> <ruby><ruby><rb></rb><rt>lor-tim</rt></ruby><rt>day</rt></ruby>&#xE5DE; <ruby><ruby><rb></rb><rt>kua-tim</rt></ruby><rt>when</rt></ruby> <ruby><ruby><rb></rb><rt>fin</rt></ruby><rt>end</rt></ruby> <ruby><ruby><rb></rb><rt>ui-de</rt></ruby><rt>our</rt></ruby> <ruby><ruby><rb></rb><rt>ter-mur</rt></ruby><rt>world</rt></ruby> <ruby><ruby><rb></rb><rt>re</rt></ruby><rt>shall</rt></ruby> <ruby><ruby><rb></rb><rt>tim-por</rt></ruby><rt>come</rt></ruby>
         
@@ -271,13 +290,9 @@
   </ul>
   <p>                                                                        </p>
   <p>   </p>
-    </div>
+     </div>
+     <div class="encodingCharts">
      <table>
-       <thead>
-         <tr>
-           
-         </tr>
-       </thead>
        <tbody>
          <tr><th colspan="4">Sosarian</th></tr>
          <tr><td class="sub">A</td><td class="context"></td><td class="glyph">&#x16AB;</td><td class="encoding">\u16AB</td></tr>
@@ -314,6 +329,8 @@
          <tr><td class="sub">&blank;</td><td class="context"></td><td class="glyph">&#x16EB;</td><td class="encoding">\u16EB</td></tr>
          <tr><td class="sub">.</td><td class="context"></td><td class="glyph">&#x16EC;</td><td class="encoding">\u16EC</td></tr>
        </tbody>
+     </table>
+     <table>
        <tbody>
          <tr><th colspan="4">Dwarven</th></tr>
          <tr><td class="sub">A</td><td class="context ipa">[a]</td><td class="glyph">&#x16AA;</td><td class="encoding">\u16AA</td></tr>
@@ -350,17 +367,21 @@
          <tr><td class="sub">ST</td><td class="context"></td><td class="glyph">&#x16E5;</td><td class="encoding">\u16E5</td></tr>
          <tr><td class="sub">TH</td><td class="context ipa">[þ]</td><td class="glyph">&#x16A6;</td><td class="encoding">\u16A6</td></tr>
          <tr><td class="sub">EA</td><td class="context"></td><td class="glyph">&#x16E0;</td><td class="encoding">\u16E0</td></tr>
+         <tr><td class="sub">EO</td><td class="context"></td><td class="glyph">&#x16C7;</td><td class="encoding">\u16C7</td></tr>
          <tr><td class="sub">OO</td><td class="context ipa">[o]</td><td class="glyph">&#x16A9;</td><td class="encoding">\u16A9</td></tr>
          <tr><td class="sub">OO</td><td class="context ipa">[u]</td><td class="glyph">&#x16F3;</td><td class="encoding">\u16F3</td></tr>
          <tr><td class="sub">SH</td><td class="context ipa"></td><td class="glyph">&#x16F2;</td><td class="encoding">\u16F2</td></tr>
          <tr><td class="sub">GH</td><td class="context"></td><td class="glyph">&#x16B8;</td><td class="encoding">\u16B8</td></tr>
          <tr><td class="sub">QU</td><td class="context"></td><td class="glyph">&#x16B3;&#x16B9;</td><td class="encoding">\u16B3\u16B9</td></tr>
          <tr><td class="sub">WH</td><td class="context"></td><td class="glyph">&#x16BB;&#x16B9;</td><td class="encoding">\u16BB\u16B9</td></tr>
+         <tr><td class="context" colspan="2">Double letter</td><td class="glyph">◌&#803;</td><td class="encoding">\u803</td></tr>
          <tr><td class="sub">&blank;</td><td class="context"></td><td class="glyph">&#x16EB;</td><td class="encoding">\u16EB</td></tr>
          <tr><td class="sub">.</td><td class="context"></td><td class="glyph">&#x205D;</td><td class="encoding">\u205D</td></tr>
          <tr><td class="sub">&para;</td><td class="context"></td><td class="glyph">&#x205D;&#x200D;&#x205D;</td><td class="encoding">\u205D\u200D\u205D</td></tr>
-      </tbody>
-      <tbody>
+       </tbody>
+     </table>
+     <table>
+       <tbody>
          <tr><th colspan="4">Novian</th></tr>
          <tr><td class="sub">A</td><td class="context"></td><td class="glyph">&#x16AB;</td><td class="encoding">\u16AB</td></tr>
          <tr><td class="sub">B</td><td class="context"></td><td class="glyph">&#x16D2;</td><td class="encoding">\u16D2</td></tr>
@@ -392,15 +413,9 @@
          <tr><td class="sub">.</td><td class="context"></td><td class="glyph">&#x16EC;</td><td class="encoding">\u16EC</td></tr>
          <tr><td class="sub"> [ </td><td class="context"></td><td class="glyph">&#x1FAA2;&#xFE0E;&#x200D;&#x5B;</td><td class="encoding">\u1FAA2\uFE0E\u200D\u5B</td></tr>
          <tr><td class="sub"> ] </td><td class="context"></td><td class="glyph">&#x5D;&#x200D;&#x1FAA2;&#xFE0E;</td><td class="encoding">\u5D\u200D\u1FAA2\uFE0E</td></tr>
-       </tbody>
-       <tbody>
-         <tr><th colspan="4">Other Runic</th></tr>
-         <tr><td class="sub"></td><td class="context"></td><td class="glyph">&#x16ED;</td><td class="encoding">\u16ED</td></tr>
-         <tr><td class="sub">H</td><td class="context"></td><td class="glyph">&#x16BC;</td><td class="encoding">\u16BC</td></tr>
-         <tr><td class="sub">H</td><td class="context"></td><td class="glyph">&#x16BA;</td><td class="encoding">\u16BA</td></tr>
-         <tr><td class="sub">J</td><td class="context"></td><td class="glyph">&#x16C3;</td><td class="encoding">\u16C3</td></tr>
-         <tr><td class="sub">H&#865;B</td><td class="context"></td><td class="glyph">&#x16BC;&#x200D;&#x16D2;</td><td class="encoding">\u16BC\u200D\u16D2</td></tr>
-       </tbody>
+      </tbody>
+     </table>
+     <table>
        <tbody>
          <tr><th colspan="4">Gargish</th></tr>
          <tr><td class="sub">P</td><td class="context"></td><td class="glyph">&#xE5C0;</td><td class="encoding">\uE5C0</td></tr>
@@ -437,6 +452,8 @@
          <tr><td class="sub">.</td><td class="context"></td><td class="glyph">&#xE5DF;</td><td class="encoding">\uE5DF</td></tr>
          <tr><td class="sub">:</td><td class="context"></td><td class="glyph">&#x2234;</td><td class="encoding">\u2234</td></tr>
        </tbody>
+     </table>
+     <table>
        <tbody>
          <tr><th colspan="4">Ophidian</th></tr>
          <tr><td class="sub">A</td><td class="context"></td><td class="glyph">&#xE5E2;</td><td class="encoding">\uE5E2</td></tr>
@@ -479,5 +496,39 @@
          <tr><td class="sub">.</td><td class="context"></td><td class="glyph">&#xE5FF;</td><td class="encoding">\uE5FF</td></tr>
        </tbody>
      </table>
+     <table>
+       <tbody>
+         <tr><th colspan="4">Other Runic</th></tr>
+         <tr><td class="sub"></td><td class="context"></td><td class="glyph">&#x16ED;</td><td class="encoding">\u16ED</td></tr>
+         <tr><td class="sub">H</td><td class="context"></td><td class="glyph">&#x16BC;</td><td class="encoding">\u16BC</td></tr>
+         <tr><td class="sub">H</td><td class="context"></td><td class="glyph">&#x16BA;</td><td class="encoding">\u16BA</td></tr>
+         <tr><td class="sub">J</td><td class="context"></td><td class="glyph">&#x16C3;</td><td class="encoding">\u16C3</td></tr>
+         <tr><td class="sub">H&#865;B</td><td class="context"></td><td class="glyph">&#x16BC;&#x200D;&#x16D2;</td><td class="encoding">\u16BC\u200D\u16D2</td></tr>
+       </tbody>
+     </table>
+
+     <table>
+       <tbody>
+         <tr><th colspan="4">Symbols</th></tr>
+         <tr><td class="sub">:bell:</td><td class="context"></td><td class="glyph">&#x1F514;&#xFE0E;</td><td class="encoding">\u1F514\uFE0E</td></tr>
+         <tr><td class="sub">:book:</td><td class="context"></td><td class="glyph">&#x1F56E;&#xFE0E;</td><td class="encoding">\u1F56E\uFE0E</td></tr>
+         <tr><td class="sub">:candle:</td><td class="context"></td><td class="glyph">&#x1F56F;&#xFE0E;</td><td class="encoding">\u1F56F\uFE0E</td></tr>
+         <tr><td class="sub">:ankh:</td><td class="context"></td><td class="glyph">&#x2625;&#xFE0E;</td><td class="encoding">\u2625\uFE0E</td></tr>
+         <tr><td class="sub">:teardrop:</td><td class="context"></td><td class="glyph">&#x1F4A7;&#xFE0E;</td><td class="encoding">\u1F4A7\uFE0E</td></tr>
+         <tr><td class="sub">:heart:</td><td class="context"></td><td class="glyph">&#x1F49B;&#xFE0E;</td><td class="encoding">\u1F49B\uFE0E</td></tr>
+         <tr><td class="sub">:scales:</td><td class="context"></td><td class="glyph">&#x2696;&#xFE0E;</td><td class="encoding">\u2696\uFE0E</td></tr>
+         <tr><td class="sub">:hand:</td><td class="context"></td><td class="glyph">&#x270B;&#xFE0E;</td><td class="encoding">\u270B\uFE0E</td></tr>
+         <tr><td class="sub">:crook:</td><td class="context"></td><td class="glyph">&#x1F411;&#xFE0E;&#x200D;&#x1FA9D;&#xFE0E;</td><td class="encoding">\u1F411\uFE0E\200D\u1FA9D\uFE0E</td></tr>
+         <tr><td class="sub">:sword:</td><td class="context"></td><td class="glyph">&#x1F5E1;&#xFE0E;</td><td class="encoding">\u1F5E1\uFE0E</td></tr>
+         <tr><td class="sub">:chalice:</td><td class="context"></td><td class="glyph">&#x1F377;&#xFE0E;</td><td class="encoding">\u1F377\uFE0E</td></tr>
+         <tr class="incomplete"><td class="sub">:rose:</td><td class="context"></td><td class="glyph">&#x1F339;&#xFE0E;</td><td class="encoding">\u1F339\uFE0E</td></tr>
+         <tr class="incomplete"><td class="sub">:codex:</td><td class="context"></td><td class="glyph">?</td><td class="encoding">?</td></tr>
+         <tr><td class="sub">:knot:</td><td class="context"></td><td class="glyph">&#x1FAA2;&#xFE0E;</td><td class="encoding">\u1FAA2\uFE0E</td></tr>
+       </tbody>
+     </table>
+     </div>
+     <div class="sosarian" style="font-size:3rem; margin-top: 1rem;">
+       &#x16A0;&#803;&#775;&#x16A2;&#803;&#775;&#x16A3;&#803;&#775;&#x16A6;&#803;&#775;&#x16A8;&#803;&#775;&#x16A9;&#803;&#775;&#x16AA;&#803;&#775;&#x16AB;&#803;&#775;&#x16B1;&#803;&#775;&#x16B2;&#803;&#775;&#x16B3;&#803;&#775;&#x16B4;&#803;&#775;&#x16B7;&#803;&#775;&#x16B8;&#803;&#775;&#x16B9;&#803;&#775;&#x16BA;&#803;&#775;&#x16BB;&#803;&#775;&#x16BC;&#803;&#775;&#x16BE;&#803;&#775;&#x16C1;&#803;&#775;&#x16C3;&#803;&#775;&#x16C4;&#803;&#775;&#x16C7;&#803;&#775;&#x16C8;&#803;&#775;&#x16C9;&#803;&#775;&#x16CA;&#803;&#775;&#x16CB;&#803;&#775;&#x16CF;&#803;&#775;&#x16D2;&#803;&#775;&#x16D5;&#803;&#775;&#x16D6;&#803;&#775;&#x16D7;&#803;&#775;&#x16DA;&#803;&#775;&#x16DD;&#803;&#775;&#x16DE;&#803;&#775;&#x16DF;&#803;&#775;&#x16E0;&#803;&#775;&#x16E1;&#803;&#775;&#x16E3;&#803;&#775;&#x16E5;&#803;&#775;&#x16F1;&#803;&#775;&#x16F2;&#803;&#775;&#x16F3;&#803;&#775;
+     </div>
   </body>
 </html>
