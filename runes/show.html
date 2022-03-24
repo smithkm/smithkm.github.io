@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <style>
+      @font-face {
+        font-family: "Sosaria Scriven";
+        src: url("./SosariaScriven.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "QT Dublin Irish";
+        src: url("./QTDublinIrish.otf") format("opentype");
+      }
+      :root {
+        font-family: "Sosaria Scriven", "QT Dublin Irish";
+        font-size: 200%;
+        background: url("parchment.png") linen;
+        --black-ink: #631;
+        --red-ink: FireBrick;
+        color: var(--black-ink);
+      }
+
+      body>div {
+        width: 30rem;
+        margin-left: auto;
+        margin-right: auto;    
+      }
+      
+      .sosarian, .novian, .dwarven {
+        word-break: break-all;
+        text-align: justify;
+        text-justify: inter-character;        
+      }
+      .ophidian {
+        /*letter-spacing: -0.1em;*/
+      }
+      /*rc {
+      display: inline-block;
+      text-decoration: inherit;
+      }
+      rb {
+      display: inline;
+      text-decoration: inherit;
+      }
+      rt {
+       display: none;
+      }
+      rc:hover > rb {opacity:0.0}
+      rc:hover > rt {display: block; position: relative; text-align: center; margin-top: -2em; font-size: 0.75em;}*/
+
+      em {
+        color: var(--red-ink);
+        font-style: normal;
+        font-weight: inherit;
+      }
+      
+      strong {
+        font-style: normal;
+        font-weight: inherit;
+        text-decoration: underline overline;
+        text-underline-offset: 7%;
+      }
+
+      h2 {color: var(--red-ink);}
+      h2, h3 {font-weight: inherit;}
+      
+      h2:before, h3:before {content: '\1FAA2\FE0E\200D['; color: var(--black-ink); }
+      h2:after, h3:after {content: ']\200D\1FAA2\FE0E'; color: var(--black-ink); }
+      
+      h3:before, h3:after  {color: var(--red-ink);}
+
+      ruby {ruby-merge: merge; ruby-position: under;}
+      ruby ruby {ruby-position: over;}
+
+      .hide-ruby ruby, .hide-ruby rb {display: inline;}
+      .hide-ruby rt {display: none;}
+
+      /*.gargish {line-height: 2.25;}*/
+
+      .white, .orange, .yellow, .green, .blue, .black, .red, .purple {
+        -webkit-text-stroke-width: 0.25px;
+        -webkit-text-stroke-color: var(--black-ink);
+      }
+
+      .white {color:floralwhite;}
+      .orange {color:SandyBrown; }
+      .yellow {color:Khaki;}
+      .green {color:OliveDrab; }
+      .blue {color:DarkSlateBlue; }
+      .black {color:darker var(--black-ink);}
+      .red {color:var(--red-ink);}
+      .purple {color:darkorchid ;}
+
+      .song {
+        padding-left: 5em;
+        padding-right: 5em;
+        word-break: normal;
+        text-align: start;
+        text-justify: none;      
+      }
+      
+      .verse {      
+      }
+      .line {
+        padding-left: 5em ;
+        text-indent: -5em ;
+      }
+
+      .encodingCharts {width: 100%;}
+      .encodingCharts table {display: inline-table; border: 1pt solid}
+      table {font-size: inherit;}
+      td.glyph {font-size: 200%; text-align: center;}
+      td.encoding {font-family: monospace;}
+      td.sub, td.context.ipa {text-align: center;}
+      tr.incomplete {text-decoration: line-through var(--red-ink)}
+    </style>
+
+  </head>
+  <body>
+    <output id="out" style="font-size: 300%;"></output>
+
+    <script>
+      document.getElementById("out").textContent = decodeURIComponent(window.location.hash.substring(1));
+    </script>
+
+  </body>
+</html>
