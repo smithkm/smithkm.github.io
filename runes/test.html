@@ -2,18 +2,28 @@
   <head>
     <style>
       @font-face {
-        font-family: "Sosaria Scriven";
-        src: url("./SosariaScriven.otf") format("opentype");
+        font-family: "Scriven";
+        src: url("./Scriven.woff2");
       }
-      @font-face {
-        font-family: "QT Dublin Irish";
-        src: url("./QTDublinIrish.otf") format("opentype");
+      @font-feature-values "Scriven" {
+	  @styleset {
+	      capital-dots: 2;
+	      latin-vowel-tehetar: 1;
+	      latin-to-sosarian: 4;
+	      latin-to-gargish: 5;
+	      automatic-r-rotunda: 6;
+	  }
+	  @stylistic {
+	      alternates: 1;
+	  }
       }
+
       :root {
-        font-family: "Sosaria Scriven", "QT Dublin Irish";
+        font-family: "Scriven";
         font-size: 200%;
         background: url("parchment.png") linen;
-        --black-ink: #631;
+        --black-ink: #663311;
+        --rule-ink: #66331122;
         --red-ink: FireBrick;
         color: var(--black-ink);
       }
@@ -23,6 +33,26 @@
         margin-left: auto;
         margin-right: auto;    
       }
+
+      .pilcrow::first-letter {float: left;font-size: 4.5em;color: var(--red-ink);font-variant-alternates: styleset(capital-dots)}
+      .pilcrow::first-line {color: var(--red-ink); font-feature-settings: "ss01","ss06";}
+      .pilcrow {
+	  columns: 2;
+	  text-align: justify;
+	  line-height: 1;
+	  background-image: repeating-linear-gradient(0deg, var(--rule-ink), var(--rule-ink) 0.0125em, transparent 0.0125em, transparent);
+	  background-size: 1em 1em;
+	  background-position-y: -0.25em;
+	  font-variant-alternates: styleset(automatic-r-rotunda);
+	  hyphens: auto;
+	  hyphenate-character: "\2E17";
+	  hanging-punctuation: start force-end;
+      }
+      .pilcrow p {display:inline;
+		 }
+      .pilcrow p+p::before{content: '¶'; color: var(--red-ink);}
+
+      .pilcrow q { color: var(--red-ink);}
       
       .sosarian, .novian, .dwarven {
         word-break: break-all;
@@ -32,7 +62,7 @@
       .ophidian {
         /*letter-spacing: -0.1em;*/
       }
-      /*rc {
+      rc {
       display: inline-block;
       text-decoration: inherit;
       }
@@ -62,8 +92,8 @@
       h2 {color: var(--red-ink);}
       h2, h3 {font-weight: inherit;}
       
-      h2:before, h3:before {content: '\1FAA2\FE0E\200D['; color: var(--black-ink); }
-      h2:after, h3:after {content: ']\200D\1FAA2\FE0E'; color: var(--black-ink); }
+      h2:before, h3:before {content: '\25C7\200D['; color: var(--black-ink); }
+      h2:after, h3:after {content: ']\200D\25C7'; color: var(--black-ink); }
       
       h3:before, h3:after  {color: var(--red-ink);}
 
@@ -81,10 +111,10 @@
       }
 
       .white {color:floralwhite;}
-      .orange {color:SandyBrown; }
-      .yellow {color:Khaki;}
-      .green {color:OliveDrab; }
-      .blue {color:DarkSlateBlue; }
+      .orange {color:sandybrown; }
+      .yellow {color:khaki;}
+      .green {color:olivedrab; }
+      .blue {color:darkslateblue; }
       .black {color:darker var(--black-ink);}
       .red {color:var(--red-ink);}
       .purple {color:darkorchid ;}
@@ -290,6 +320,21 @@
   </ul>
   <p>                                                                        </p>
   <p>   </p>
+     </div>
+     <div class="pilcrow">
+              <p>The prac­tice of rubri­ca­tion usu­ally en­tailed the ad­di­tion of red head­ings to mark the end of one sec­tion of text and the be­gin­ning of an­other. Such head­ings were some­times used to in­tro­duce the sub­ject of the fol­low­ing sec­tion or to de­clare its pur­pose and func­tion. Rubri­ca­tion was used so often in this re­gard that the term rubric was com­monly used as a generic term for head­ers of any type or color, though it tech­ni­cally re­ferred only to head­ers to which red ink had been added. In litur­gi­cal books such as missals, red may also be used to give the ac­tions to be per­formed by the cel­e­brant or oth­ers, leav­ing the texts to be read in black. Im­por­tant feasts in litur­gi­cal cal­en­dars were also often rubri­cated, and rubri­ca­tion can in­di­cate how scribes viewed the im­por­tance of dif­fer­ent parts of their text.</p>
+
+       <p>Rubri­ca­tion may also be used to em­pha­size the start­ing char­ac­ter of a canto or other di­vi­sion of text; this was often im­por­tant be­cause man­u­scripts often con­sist of mul­ti­ple works in a sin­gle bound vol­ume. This par­tic­u­lar type of rubri­ca­tion is sim­i­lar to flour­ish­ing, wherein red ink is used to style a lead­ing char­ac­ter with artis­tic loops and swirls. How­ever, this process is far less elab­o­rate than il­lu­mi­na­tion, in which de­tailed pic­tures are in­cor­po­rated into the man­u­script often set in thin sheets of gold to give the ap­pear­ance of light within the text.</p>
+
+       <p>Quite com­monly the man­u­script&rsquo;s ini­tial scribe would pro­vide notes to the rubri­ca­tor in the form of an­no­ta­tions made in the mar­gins of the text. Such notes were ef­fec­tively in­di­ca­tions to <q>rubri­cate here</q> or <q>add rubric</q>. In many other cases, the ini­tial scribe also held the po­si­tion of rubri­ca­tor, and so he ap­plied rubri­ca­tion as needed with­out the use of an­no­ta­tions. This is im­por­tant, as a scribe&rsquo;s an­no­ta­tions to the rubri­ca­tor can be used along with cod­i­col­ogy to es­tab­lish a man­u­script&rsquo;s his­tory, or prove­nance.</p>
+
+       <p>Later me­dieval prac­ti­tion­ers ex­tended the prac­tice of rubri­ca­tion to in­clude the use of other col­ors of ink be­sides red. Most often, al­ter­na­tive col­ors in­cluded blue and green. After the in­tro­duc­tion of mov­able type print­ing, read­ers con­tin­ued to ex­pect rubri­ca­tion, which might be done by hand, if there were few rubrics to add, or by a sep­a­rate print using a red-ink form, later the nor­mal method. The <q>great ma­jor­ity of in­cun­ables did not issue from the press in a fin­ished state... hardly any in­cun­able was con­sid­ered <q>fin­ished</q> by its printer...</q>, sug­gest­ing that hand rubri­ca­tion pro­vided a sense of le­git­i­macy to the ef­forts of early print­ers and their works. This fact, the no­tion that some­thing about hand writ­ten rubri­ca­tion com­pletes a printed work by at­tribut­ing to it a sense of le­git­i­macy and fi­nal­ity, is fur­ther sup­ported by the fact that red ink <q>was not merely dec­o­ra­tive... red&rsquo;s orig­i­nal func­tion was to ar­tic­u­late the text by in­di­cat­ing such parts as head­ings that were so es­sen­tial to the func­tion of man­u­scripts that the print­ers had to deal with them in some way</q>.</p>
+
+       <p>With the in­tro­duc­tion of the print­ing press from the late me­dieval pe­riod on, space be­fore para­graphs was still left for rubri­ca­tors to add a pil­crow by hand. How­ever in some cir­cum­stances, rubri­ca­tors could not draw fast enough for pub­lish­ers&rsquo; dead­lines and books would often be sold with the be­gin­nings of the para­graphs left blank. This is how the prac­tice of in­den­tion be­fore para­graphs was cre­ated.</p>
+     </div>
+     <div>
+       <p>&#xF1942;&#xF1934;&#xF1927;&#xF1911;&#xF1990;K&#xF1992;e&#xF1992;w&#xF1992;i&#xF1992;n&#xF1992;&#xF1991;</p>
+       <p>&#xF1942;&#xF1934;&#xF1927;&#xF1911;&#xF1990;Kewin&#xF1991;</p>
      </div>
      <div class="encodingCharts">
      <table>
