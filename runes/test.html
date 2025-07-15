@@ -13,18 +13,29 @@
 	      latin-to-gargish: 5;
 	      automatic-r-rotunda: 6;
 	  }
+	  @character-variant {
+	      pilcrow-long: 1 2;
+	      pilcrow-tall: 1 3;
+	      pilcrow-long-tall: 1 4;
+	      pilcrow-modern: 1 5;
+	  }
 	  @stylistic {
 	      alternates: 1;
 	  }
+      }
+
+      .min {
+	  /*font-variant-position: super;*/
       }
 
       :root {
         font-family: "Scriven";
         font-size: 200%;
         background: url("parchment.png") linen;
-        --black-ink: #663311;
-        --rule-ink: #66331122;
-        --red-ink: FireBrick;
+        --black-ink: #301505;
+        --rule-ink: #30150522;
+        --red-ink: firebrick;
+        --blue-ink: royalblue;
         color: var(--black-ink);
       }
 
@@ -36,7 +47,7 @@
 
       .pilcrow::first-letter {float: left;font-size: 4.5em;color: var(--red-ink);font-variant-alternates: styleset(capital-dots)}
       .pilcrow::first-line {color: var(--red-ink); font-feature-settings: "ss01","ss06";}
-      .pilcrow {
+      .pilcrow,.pilcrow2 {
 	  columns: 2;
 	  text-align: justify;
 	  line-height: 1;
@@ -46,13 +57,18 @@
 	  font-variant-alternates: styleset(automatic-r-rotunda);
 	  hyphens: auto;
 	  hyphenate-character: "\2E17";
-	  hanging-punctuation: start force-end;
       }
-      .pilcrow p {display:inline;
-		 }
-      .pilcrow p+p::before{content: '¶'; color: var(--red-ink);}
+      .pilcrow p {display:inline;}
+      
+      .pilcrow p+p::before{content: '¶'; color: var(--blue-ink); font-variant-alternates: character-variant(pilcrow-long);}
 
-      .pilcrow q { color: var(--red-ink);}
+      .pilcrow q, .pilcrow2 q { color: var(--red-ink);}
+      .pilcrow2 p{margin:0;}
+      .pilcrow2 p::before{content: '¶'; display: block; float:left; margin-left:-0.75em; color: var(--red-ink);}
+      .pilcrow2 p:nth-child(5n+1)::before{font-variant-alternates: character-variant(pilcrow-tall); }
+      .pilcrow2 p:nth-child(5n+2)::before{font-variant-alternates: character-variant(pilcrow-long);}
+      .pilcrow2 p:nth-child(5n+3)::before{font-variant-alternates: character-variant(pilcrow-long-tall); }
+      .pilcrow2 p:nth-child(5n+4)::before{font-variant-alternates: character-variant(pilcrow-modern);}
       
       .sosarian, .novian, .dwarven {
         word-break: break-all;
@@ -114,8 +130,8 @@
       .orange {color:sandybrown; }
       .yellow {color:khaki;}
       .green {color:olivedrab; }
-      .blue {color:darkslateblue; }
-      .black {color:darker var(--black-ink);}
+      .blue {color: var(--blue-ink);}
+      .black {color:var(--black-ink);}
       .red {color:var(--red-ink);}
       .purple {color:darkorchid ;}
 
@@ -326,15 +342,28 @@
   <p>   </p>
      </div>
      <div class="pilcrow">
-              <p>The prac­tice of rubri­ca­tion usu­ally en­tailed the ad­di­tion of red head­ings to mark the end of one sec­tion of text and the be­gin­ning of an­other. Such head­ings were some­times used to in­tro­duce the sub­ject of the fol­low­ing sec­tion or to de­clare its pur­pose and func­tion. Rubri­ca­tion was used so often in this re­gard that the term rubric was com­monly used as a generic term for head­ers of any type or color, though it tech­ni­cally re­ferred only to head­ers to which red ink had been added. In litur­gi­cal books such as missals, red may also be used to give the ac­tions to be per­formed by the cel­e­brant or oth­ers, leav­ing the texts to be read in black. Im­por­tant feasts in litur­gi­cal cal­en­dars were also often rubri­cated, and rubri­ca­tion can in­di­cate how scribes viewed the im­por­tance of dif­fer­ent parts of their text.</p>
+              <p>The prac­tice of rubri­ca­tion usu­ally en­tailed t<span class="min">he</span> ad­di­tion of red head­ings to mark t<span class="min">he</span> end of one sec­tion of text and t<span class="min">he</span> be­gin­ning of an­other. Such head­ings were some­times used to in­tro­duce t<span class="min">he</span> sub­ject of t<span class="min">he</span> fol­low­ing sec­tion or to de­clare its pur­pose and func­tion. Rubri­ca­tion was used so often in this re­gard that t<span class="min">he</span> term rubric was com­monly used as a generic term for head­ers of any type or color, though it tech­ni­cally re­ferred only to head­ers to which red ink had been added. In litur­gi­cal books such as missals, red may also be used to give t<span class="min">he</span> ac­tions to be per­formed by t<span class="min">he</span> cel­e­brant or oth­ers, leav­ing t<span class="min">he</span> texts to be read in black. Im­por­tant feasts in litur­gi­cal cal­en­dars were also often rubri­cated, and rubri­ca­tion can in­di­cate how scribes viewed t<span class="min">he</span> im­por­tance of dif­fer­ent parts of their text.</p>
 
-       <p>Rubri­ca­tion may also be used to em­pha­size the start­ing char­ac­ter of a canto or other di­vi­sion of text; this was often im­por­tant be­cause man­u­scripts often con­sist of mul­ti­ple works in a sin­gle bound vol­ume. This par­tic­u­lar type of rubri­ca­tion is sim­i­lar to flour­ish­ing, wherein red ink is used to style a lead­ing char­ac­ter with artis­tic loops and swirls. How­ever, this process is far less elab­o­rate than il­lu­mi­na­tion, in which de­tailed pic­tures are in­cor­po­rated into the man­u­script often set in thin sheets of gold to give the ap­pear­ance of light within the text.</p>
+       <p>Rubri­ca­tion may also be used to em­pha­size t<span class="min">he</span> start­ing char­ac­ter of a canto or other di­vi­sion of text; this was often im­por­tant be­cause man­u­scripts often con­sist of mul­ti­ple works in a sin­gle bound vol­ume. This par­tic­u­lar type of rubri­ca­tion is sim­i­lar to flour­ish­ing, wherein red ink is used to style a lead­ing char­ac­ter with artis­tic loops and swirls. How­ever, this process is far less elab­o­rate than il­lu­mi­na­tion, in which de­tailed pic­tures are in­cor­po­rated into t<span class="min">he</span> man­u­script often set in thin sheets of gold to give t<span class="min">he</span> ap­pear­ance of light within t<span class="min">he</span> text.</p>
 
-       <p>Quite com­monly the man­u­script&rsquo;s ini­tial scribe would pro­vide notes to the rubri­ca­tor in the form of an­no­ta­tions made in the mar­gins of the text. Such notes were ef­fec­tively in­di­ca­tions to <q>rubri­cate here</q> or <q>add rubric</q>. In many other cases, the ini­tial scribe also held the po­si­tion of rubri­ca­tor, and so he ap­plied rubri­ca­tion as needed with­out the use of an­no­ta­tions. This is im­por­tant, as a scribe&rsquo;s an­no­ta­tions to the rubri­ca­tor can be used along with cod­i­col­ogy to es­tab­lish a man­u­script&rsquo;s his­tory, or prove­nance.</p>
+       <p>Quite com­monly t<span class="min">he</span> man­u­script&rsquo;s ini­tial scribe would pro­vide notes to t<span class="min">he</span> rubri­ca­tor in t<span class="min">he</span> form of an­no­ta­tions made in t<span class="min">he</span> mar­gins of t<span class="min">he</span> text. Such notes were ef­fec­tively in­di­ca­tions to <q>rubri­cate here</q> or <q>add rubric</q>. In many other cases, t<span class="min">he</span> ini­tial scribe also held t<span class="min">he</span> po­si­tion of rubri­ca­tor, and so he ap­plied rubri­ca­tion as needed with­out t<span class="min">he</span> use of an­no­ta­tions. This is im­por­tant, as a scribe&rsquo;s an­no­ta­tions to t<span class="min">he</span> rubri­ca­tor can be used along with cod­i­col­ogy to es­tab­lish a man­u­script&rsquo;s his­tory, or prove­nance.</p>
 
-       <p>Later me­dieval prac­ti­tion­ers ex­tended the prac­tice of rubri­ca­tion to in­clude the use of other col­ors of ink be­sides red. Most often, al­ter­na­tive col­ors in­cluded blue and green. After the in­tro­duc­tion of mov­able type print­ing, read­ers con­tin­ued to ex­pect rubri­ca­tion, which might be done by hand, if there were few rubrics to add, or by a sep­a­rate print using a red-ink form, later the nor­mal method. The <q>great ma­jor­ity of in­cun­ables did not issue from the press in a fin­ished state... hardly any in­cun­able was con­sid­ered <q>fin­ished</q> by its printer...</q>, sug­gest­ing that hand rubri­ca­tion pro­vided a sense of le­git­i­macy to the ef­forts of early print­ers and their works. This fact, the no­tion that some­thing about hand writ­ten rubri­ca­tion com­pletes a printed work by at­tribut­ing to it a sense of le­git­i­macy and fi­nal­ity, is fur­ther sup­ported by the fact that red ink <q>was not merely dec­o­ra­tive... red&rsquo;s orig­i­nal func­tion was to ar­tic­u­late the text by in­di­cat­ing such parts as head­ings that were so es­sen­tial to the func­tion of man­u­scripts that the print­ers had to deal with them in some way</q>.</p>
+       <p>Later me­dieval prac­ti­tion­ers ex­tended t<span class="min">he</span> prac­tice of rubri­ca­tion to in­clude t<span class="min">he</span> use of other col­ors of ink be­sides red. Most often, al­ter­na­tive col­ors in­cluded blue and green. After t<span class="min">he</span> in­tro­duc­tion of mov­able type print­ing, read­ers con­tin­ued to ex­pect rubri­ca­tion, which might be done by hand, if there were few rubrics to add, or by a sep­a­rate print using a red-ink form, later t<span class="min">he</span> nor­mal method. t<span class="min">he</span> <q>great ma­jor­ity of in­cun­ables did not issue from t<span class="min">he</span> press in a fin­ished state... hardly any in­cun­able was con­sid­ered <q>fin­ished</q> by its printer...</q>, sug­gest­ing that hand rubri­ca­tion pro­vided a sense of le­git­i­macy to t<span class="min">he</span> ef­forts of early print­ers and their works. This fact, t<span class="min">he</span> no­tion that some­thing about hand writ­ten rubri­ca­tion com­pletes a printed work by at­tribut­ing to it a sense of le­git­i­macy and fi­nal­ity, is fur­ther span­ported by t<span class="min">he</span> fact that red ink <q>was not merely dec­o­ra­tive... red&rsquo;s orig­i­nal func­tion was to ar­tic­u­late t<span class="min">he</span> text by in­di­cat­ing such parts as head­ings that were so es­sen­tial to t<span class="min">he</span> func­tion of man­u­scripts that t<span class="min">he</span> print­ers had to deal with them in some way</q>.</p>
 
-       <p>With the in­tro­duc­tion of the print­ing press from the late me­dieval pe­riod on, space be­fore para­graphs was still left for rubri­ca­tors to add a pil­crow by hand. How­ever in some cir­cum­stances, rubri­ca­tors could not draw fast enough for pub­lish­ers&rsquo; dead­lines and books would often be sold with the be­gin­nings of the para­graphs left blank. This is how the prac­tice of in­den­tion be­fore para­graphs was cre­ated.</p>
+	      <p>With t<span class="min">he</span> in­tro­duc­tion of t<span class="min">he</span> print­ing press from t<span class="min">he</span> late me­dieval pe­riod on, space be­fore para­graphs was still left for rubri­ca­tors to add a pil­crow by hand. How­ever in some cir­cum­stances, rubri­ca­tors could not draw fast enough for pub­lish­ers&rsquo; dead­lines and books would often be sold with t<span class="min">he</span> be­gin­nings of t<span class="min">he</span> para­graphs left blank. This is how t<span class="min">he</span> prac­tice of in­den­tion be­fore para­graphs was cre­ated.</p>
+     </div>
+
+     
+     <div style="margin-top:3em;" class="pilcrow2">
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel malesuada nunc. Quisque ac leo vitae lectus gravida consectetur id a velit. Aenean vehicula non arcu ac fringilla. Nullam at leo id nunc auctor aliquam. Praesent ac sapien a metus egestas tincidunt. Aliquam ante ex, gravida & metus eget, fringilla gravida justo. Quisque turpis lorem, vulputate a turpis ac, tempus accumsan turpis. Phasellus posuere vel odio ut convallis.</p>
+
+       <p>Duis a nibh sit amet urna congue auctor. Nulla quis tempus elit. Pellentesque blandit finibus felis eu vulputate. Cras eget ipsum molestie orci ultricies sodales. Pellentesque quis iaculis orci, at fermentum orci. Quisque posuere tellus ac posuere vehicula. Nullam ultrices vulputate tortor sed aliquam. Sed fringilla luctus dignissim. Proin sit amet felis lobortis odio dapibus varius dignissim in lectus. Integer cursus enim libero, non sagittis diam volutpat sed.</p>
+
+       <p>Donec a fringilla sapien. Vivamus in ullamcorper nisi. Proin sodales rhoncus urna vel lobortis. Suspendisse metus tellus, auctor a nisl quis, vestibulum rutrum risus. Interdum & malesuada fames ac ante ipsum primis in faucibus. Fusce sodales odio rhoncus, fringilla nulla nec, suscipit orci. Proin molestie augue purus, eu rutrum turpis tristique ut. Sed dapibus accumsan massa, non dictum quam viverra sit amet. Cras a turpis euismod enim condimentum volutpat at a neque. Curabitur eleifend lorem mi, eu porta nulla ultrices id. Nulla in sodales felis, non bibendum purus. Pellentesque euismod ullamcorper molestie. Sed & nunc eu tortor efficitur efficitur a vitae leo. Nam convallis mauris quis lacus porta porttitor. Nullam dignissim malesuada vulputate.</p>
+
+       <p>In ut odio aliquam nisl faucibus eleifend. Morbi id nisl ante. Nullam ut lectus nec felis faucibus consequat vitae non velit. Fusce sed placerat quam, id pulvinar ligula. Mauris ornare in turpis ac ornare. Curabitur mi est, efficitur ac feugiat &, sodales sit amet lorem. Maecenas posuere, mauris sed semper viverra, augue ex finibus massa, fermentum sollicitudin elit purus eu massa. Phasellus scelerisque lacus mauris, ac accumsan sapien posuere in. In ornare leo eu neque aliquet tincidunt. Suspendisse potenti. Sed in mauris eget purus efficitur ullamcorper. Donec dui nulla, egestas non neque quis, rutrum iaculis est. Cras eu posuere sapien.</p>
+
+       <p>Fusce rutrum pulvinar maximus. Proin hendrerit velit massa, sit amet porttitor lorem laoreet sodales. Mauris ex orci, elementum sit amet bibendum &, aliquet ut mauris. Nam placerat turpis id arcu congue sodales. Mauris eget consectetur arcu. In vel mi enim. Suspendisse cursus pretium sapien semper hendrerit. Aliquam tincidunt metus sit amet leo rutrum, sed dictum odio suscipit. Cras at nulla est. Vestibulum molestie lectus vel tellus ullamcorper sodales. Proin imperdiet, neque ut convallis dapibus, velit libero egestas neque, eu posuere metus urna nec felis. Aliquam mi enim, pellentesque & dapibus eget, eleifend eget augue. Quisque & ultricies libero. Sed sollicitudin risus in nulla tincidunt, id posuere nisl tincidunt. Nam vel turpis erat. Donec ut felis viverra, consectetur neque id, efficitur mi.</p>
      </div>
      <div>
        <p>&#xF1942;&#xF1934;&#xF1927;&#xF1911;&#xF1990;K&#xF1992;e&#xF1992;w&#xF1992;i&#xF1992;n&#xF1992;&#xF1991;</p>
